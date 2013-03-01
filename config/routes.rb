@@ -1,4 +1,7 @@
 Paparazzi::Application.routes.draw do
+  resources :pictures
+
+
   resources :headlines
 
 

@@ -1,4 +1,7 @@
 Paparazzi::Application.routes.draw do
+  resources :headlines
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

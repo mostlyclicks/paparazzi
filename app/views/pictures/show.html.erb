@@ -2,12 +2,15 @@
 
 <p>
   <b>Title:</b>
-  <%= @picture.title %>
+  <%= @picture.title %> <%= @headline.title %>
 </p>
 
 <p>
   <b>Pict file:</b>
   <%= image_tag @picture.pict_file_url %>
+<%#= image_tag(@picture.pict_file_url(:ipad2), :width => 1024, :height => 768) %>
+  
+
 </p>
 
 

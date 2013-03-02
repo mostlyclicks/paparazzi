@@ -60,5 +60,6 @@ module Paparazzi
     config.assets.version = '1.0'
 
     config.logger = Logger.new(STDOUT)
+    CLOUDINARY_URL='cloudinary://716126931381521:MpXodXvM2t9KRQKG2XjGoArn_P0@hzn18tsjt'
   end
 end

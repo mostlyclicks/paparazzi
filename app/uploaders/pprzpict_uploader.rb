@@ -1,10 +1,16 @@
 # encoding: utf-8
 
 class PprzpictUploader < CarrierWave::Uploader::Base
-
+  include Cloudinary::CarrierWave
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
+
+  version :ipad2 do
+    process :resize_to_fill => [1024, 768, :fill]
+    process :convert => 'jpg'
+    cloudinary_transformation :quality => 40
+  end
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   # include Sprockets::Helpers::RailsHelper
@@ -12,7 +18,7 @@ class PprzpictUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   #storage :file
-  storage :fog
+  #storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -21,9 +27,9 @@ class PprzpictUploader < CarrierWave::Uploader::Base
   #  "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   #end
 
-  def cache_dir
-    "#{Rails.root}/tmp/uploads"
-  end
+  #def cache_dir
+  #  "#{Rails.root}/tmp/uploads"
+  #end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -53,9 +59,9 @@ class PprzpictUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-   def filename
-     "#{time_number}-image.jpg" if original_filename
-   end
+   #def filename
+   #  "#{time_number}-image.jpg" if original_filename
+   #end
 
    
 

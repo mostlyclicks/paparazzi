@@ -3,7 +3,9 @@ class PicturesController < ApplicationController
   # GET /pictures.json
   def index
     @pictures = Picture.all
-
+    @headlines = Headline.all
+    headline_id = rand(@headlines.first.id..@headlines.last.id)
+    @headline = Headline.find_by_id(headline_id)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pictures }

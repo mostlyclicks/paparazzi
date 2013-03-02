@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'fog'
 gem 'rmagick'
+gem 'cloudinary'
 
 
 

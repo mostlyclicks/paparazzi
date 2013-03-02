@@ -4,7 +4,9 @@ class PicturesController < ApplicationController
   def index
     @pictures = Picture.all
     @headlines = Headline.all
-    headline_id = rand(@headlines.first.id..@headlines.last.id)
+    first = @headlines.first.id
+    last = @headlines.last.id
+    headline_id = rand(first..last)
     @headline = Headline.find_by_id(headline_id)
     respond_to do |format|
       format.html # index.html.erb
